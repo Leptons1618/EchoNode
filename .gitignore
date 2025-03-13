@@ -43,10 +43,14 @@ models/*/
 *.swp
 *.swo
 
+# Environment variables
+.env
+.env.*
+!.env.example
+
 # Misc
 .DS_Store
 Thumbs.db
-.env
 *.db
 *.sqlite
 .coverage

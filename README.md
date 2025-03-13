@@ -1,44 +1,54 @@
 # EchoNode
 
-A conversational AI application that uses multiple public models for text generation with voice interaction capabilities.
+A modern conversational AI application that uses Ollama to access multiple public models with a clean NiceGUI interface.
 
 ## Features
 
-- Multiple model support (Mixtral, Llama, Vicuna, Phi)
+- Integration with Ollama for running AI models locally
+- Support for multiple models (Mixtral, Llama, Mistral, Phi, Vicuna)
 - Speech recognition and text-to-speech capabilities
-- Comprehensive logging system with file storage
-- User-friendly interface with Gradio
-- Model switching within the chat interface
-- Background downloading of models with status updates
+- Clean, responsive UI built with NiceGUI
+- Comprehensive logging system
+- Model switching with a single click
 
 ## Setup
 
-1. Install dependencies:
+1. Install Ollama:
+   - Visit [Ollama's website](https://ollama.ai/) to download and install
+   - Start the Ollama service
+
+2. Install Python dependencies:
 ```
-pip install transformers torch gradio speech_recognition pyttsx3 pocketsphinx
+pip install nicegui requests speech_recognition pyttsx3 pocketsphinx torch
 ```
 
-2. Run the application:
+3. Run the application:
 ```
 python app.py
 ```
 
-3. Use the "Download All Models" button in the interface to download models directly from the UI, or select individual models from the dropdown menu to download them as needed.
+4. Open your browser and navigate to:
+```
+http://localhost:7860
+```
 
 ## Usage
 
 1. Select a model from the dropdown menu
-2. Type your message or use the "Speak" button to talk
-3. View the model's response (it will be spoken out loud as well)
-4. Monitor logs below the chat interface
-5. Download all available models using the "Download All Models" button
+2. Type your message or use the microphone button to talk
+3. Click 'Send' or press Enter to submit your message
+4. View the model's response (it will be spoken out loud as well)
+5. Pull all available models using the 'Pull All Models' button
+6. Expand the Logs section to see detailed interaction logs
 
 ## Models
 
-- **mixtral-7b**: Mixtral 7B Instruct model from Mistral AI
-- **llama-7b**: Llama 2 7B Chat model from Meta
-- **vicuna-7b**: Vicuna 7B conversational model
-- **phi-2**: Phi-2 2.7B model from Microsoft
+The application uses Ollama to run these models locally:
+- **mixtral**: Mixtral 7B model by Mistral AI
+- **llama2**: Llama 2 7B model by Meta
+- **mistral**: Mistral 7B model
+- **phi**: Phi-2 2.7B model by Microsoft
+- **vicuna**: Vicuna 7B conversational model
 
 ## Logs
 
@@ -48,18 +58,10 @@ Logs are stored in the `logs` directory with timestamps and include:
 - Speech recognition events
 - Errors and warnings
 
-## Model Storage
+## Requirements
 
-Models are downloaded and stored in the models directory. The structure is:
-- `models/mixtral-7b/` - Mixtral model files
-- `models/llama-7b/` - Llama model files
-- `models/vicuna-7b/` - Vicuna model files
-- `models/phi-2/` - Phi-2 model files
-
-## Development
-
-The application is built with:
-- Gradio for the web interface
-- Transformers for the language models
-- PyTorch as the underlying machine learning framework
-- Speech recognition and text-to-speech libraries for voice interaction
+- Ollama installed and running locally
+- Python 3.7+
+- Sufficient RAM for running the models (8GB minimum, 16GB+ recommended)
+- Microphone for speech input (optional)
+- Speakers for text-to-speech output (optional)
